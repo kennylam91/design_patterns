@@ -13,13 +13,24 @@ public abstract class Duck {
 //    Design principle
 //    Identify the aspects of your application that vary and separate them from what stays the same
 
-    void quack() {
-        System.out.println("Quack");
-    }
-
-    void swim() {
-        System.out.println("Swim");
-    }
+    FlyBehavior flyBehavior;
+    QuackBehavior quackBehavior;
 
     abstract void display();
+
+    void performQuack() {
+        quackBehavior.quack();
+    }
+
+    void performFly() {
+        flyBehavior.fly();
+    }
+
+    public void setFlyBehavior(FlyBehavior flyBehavior) {
+        this.flyBehavior = flyBehavior;
+    }
+
+    public void setQuackBehavior(QuackBehavior quackBehavior) {
+        this.quackBehavior = quackBehavior;
+    }
 }
